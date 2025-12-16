@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emotion & Posture Detector v5.0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .meta {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .download-box {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      border: 2px dashed var(--primary);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .download-box h3 {
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .download-placeholder {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.9rem 1.8rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    .download-placeholder:hover {
+      opacity: 1;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5f5;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+    a{
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Emotion & Posture Detector v5.0</h1>
+    <p>Hệ thống giám sát cảm xúc và tư thế thông minh – Ứng dụng AI trong giáo dục</p>
+    <div class="meta">
+      <p><strong>Tác giả:</strong> Nguyễn Tấn Phú, Nguyễn Xuân Trụ</p>
+      <p><strong>Giáo viên hướng dẫn:</strong> Huỳnh Thị Khánh Nga</p>
+      <p><strong>Trường:</strong> THPT Nguyễn Trãi</p>
+      <p><strong>Lớp:</strong> 12/5 | <strong>Năm:</strong> 2025</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="section">
+      <h2>Giới thiệu sản phẩm</h2>
+      <p>
+        <strong>Emotion & Posture Detector v5.0</strong> là phần mềm ứng dụng trí tuệ nhân tạo
+        nhằm phân tích <b>cảm xúc khuôn mặt</b> và <b>tư thế ngồi</b> theo thời gian thực.
+        Hệ thống được thiết kế hướng đến môi trường học đường, hỗ trợ giáo viên và nhà trường
+        theo dõi mức độ tập trung, trạng thái tâm lý và tư thế học sinh một cách khách quan.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Tính năng nổi bật</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>🎭 Nhận diện cảm xúc</h3>
+          <p>Phát hiện các trạng thái như vui vẻ, buồn, giận dữ, sợ hãi, trung lập… bằng AI.</p>
+        </div>
+        <div class="card">
+          <h3>🪑 Phân tích tư thế</h3>
+          <p>Đánh giá tư thế ngồi (thẳng – hơi cúi – cúi nhiều) dựa trên MediaPipe Pose.</p>
+        </div>
+        <div class="card">
+          <h3>⚠️ Cảnh báo thông minh</h3>
+          <p>Cảnh báo khi học sinh cúi gù lâu hoặc có cảm xúc tiêu cực kéo dài.</p>
+        </div>
+        <div class="card">
+          <h3>🌐 Truyền dữ liệu thời gian thực</h3>
+          <p>Phát live stream nội bộ qua trình duyệt và gửi log lên server.</p>
+        </div>
+        <div class="card">
+          <h3>📄 Xuất báo cáo</h3>
+          <p>Tự động xuất báo cáo CSV, TXT và Word phục vụ phân tích – đánh giá.</p>
+        </div>
+        <div class="card">
+          <h3>🔗 Tích hợp AISmartMonitor</h3>
+          <p>Mở chương trình <b><a href = "AISmartMonitor.html" target = "_blank">AISmartMonitor</a></b> (.exe) trực tiếp từ chương trình chính.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Kiến trúc hệ thống</h2>
+      <p>
+        Chương trình chính <b>Emotion & Posture Detector</b> đảm nhiệm việc thu thập hình ảnh,
+        xử lý AI và giao diện người dùng. Từ giao diện này, người dùng có thể mở
+        <b>AISmartMonitor</b> (đã đóng gói thành file <code>.exe</code>) để theo dõi mất tập trung
+        và các hành vi liên quan, tạo thành một hệ sinh thái giám sát học tập hoàn chỉnh.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Tải về</h2>
+      <div class="download-box">
+        <h3>📥 Tải Emotion & Posture Detector & AISmartMonitor</h3>
+        <!-- USER TỰ CHÈN LINK DOWNLOAD VÀO href -->
+        <a href="emotion_posture_detector_v5_0_installer.exe" class="download-placeholder">Download tại đây</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 – Emotion & Posture Detector | THPT Nguyễn Trãi</p>
+  </footer>
+
+</body>
+</html>

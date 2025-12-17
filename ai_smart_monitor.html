@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Smart Monitor – Hệ thống giám sát lớp học thông minh</title>
+  <link rel="icon" href="AI Smart Monitor.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --secondary: #0d47a1;
+      --accent: #26c6da;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #eef3f8, #f9fbff);
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    .meta {
+      margin-top: 25px;
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: -40px auto 0;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .feature {
+      background: linear-gradient(135deg, #f7fbff, #ffffff);
+      border-radius: 14px;
+      padding: 20px;
+      border-left: 6px solid var(--accent);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .feature h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background: #0d47a1;
+      color: white;
+      font-size: 14px;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI SMART MONITOR</h1>
+  <p>Hệ thống giám sát lớp học thông minh bằng Trí tuệ nhân tạo</p>
+
+  <div class="meta">
+    <div><strong>Tác giả:</strong> Nguyễn Tấn Phú, Nguyễn Xuân Trụ</div>
+    <div><strong>Giáo viên hướng dẫn:</strong> Huỳnh Thị Khánh Nga</div>
+    <div><strong>Trường:</strong> THPT Nguyễn Trãi</div>
+    <div><strong>Lớp:</strong> 12/5 | <strong>Năm học:</strong> 2025-2026</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Giới thiệu chung</h2>
+    <p>
+      <span class="highlight">AI Smart Monitor</span> là sản phẩm nghiên cứu khoa học ứng dụng trí tuệ nhân tạo
+      trong môi trường giáo dục, nhằm hỗ trợ giáo viên theo dõi trạng thái học tập,
+      biểu cảm khuôn mặt và mức độ tập trung của học sinh theo thời gian thực.
+    </p>
+    <p>
+      Hệ thống kết hợp <strong>Computer Vision</strong>, <strong>MediaPipe FaceMesh</strong>,
+      <strong>Machine Learning</strong> và <strong>phân tích hành vi</strong>
+      để phát hiện sớm các dấu hiệu mất tập trung, mệt mỏi hay căng thẳng trong lớp học.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Các phân hệ chính</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🎭 Nhận diện biểu cảm khuôn mặt</h3>
+        <p>
+          Phân tích khuôn mặt học sinh để xác định trạng thái như: bình thường,
+          buồn ngủ, căng thẳng, buồn chán hay hứng thú học tập.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>🧍 Theo dõi tư thế</h3>
+        <p>
+          Nhận biết các hành vi như cúi đầu, né tránh, thu mình – những dấu hiệu
+          của sự mất tập trung hoặc áp lực tâm lý.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>⏱ Theo dõi theo thời gian</h3>
+        <p>
+          Hành vi chỉ được ghi nhận khi kéo dài đủ lâu, giúp giảm báo động giả
+          và tăng độ tin cậy của dữ liệu.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>🌐 Kết nối Web Dashboard</h3>
+        <p>
+          Dữ liệu được gửi về server để hiển thị bảng xếp hạng rủi ro,
+          nhật ký sự cố theo từng lớp và từng ngày.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Điểm nổi bật của sản phẩm</h2>
+    <ul>
+      <li>✔ Giám sát <strong>không xâm phạm</strong>, không cần thiết bị đeo</li>
+      <li>✔ Hoạt động <strong>thời gian thực</strong>, tối ưu hiệu năng</li>
+      <li>✔ Hỗ trợ giáo viên trong quản lý lớp học và tâm lý học sinh</li>
+      <li>✔ Dễ triển khai trong môi trường trường học</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Định hướng phát triển</h2>
+    <p>
+      Trong tương lai, AI Smart Monitor có thể được mở rộng với các chức năng như:
+      phân tích xu hướng dài hạn, tích hợp học bạ điện tử, cảnh báo sớm cho giáo viên
+      chủ nhiệm và hỗ trợ tư vấn tâm lý học đường.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 – AI Smart Monitor | THPT Nguyễn Trãi
+</footer>
+
+</body>
+</html>

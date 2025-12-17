@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emotion & Posture Detector</title>
+  <link rel="icon" href="Emotion + Posture Detector v4.0.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    .meta {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .download-box {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      border: 2px dashed var(--primary);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .download-box h3 {
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .download-placeholder {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.9rem 1.8rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    .download-placeholder:hover {
+      opacity: 1;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5f5;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+    a{
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Emotion & Posture Detector</h1>
+    <div class="meta">
+      <p><strong>Tác giả:</strong> Nguyễn Tấn Phú, Nguyễn Xuân Trụ</p>
+      <p><strong>Giáo viên hướng dẫn:</strong> Huỳnh Thị Khánh Nga</p>
+      <p><strong>Trường:</strong> THPT Nguyễn Trãi</p>
+      <p><strong>Lớp:</strong> 12/5 | <strong>Năm học:</strong> 2025-2026</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+  <!-- ===== EMOTION & POSTURE DETECTOR ===== -->
+  <section class="section">
+    <h2>Emotion & Posture Detector</h2>
+    <p>
+      <strong>Emotion & Posture Detector</strong> là hệ thống phân tích nhận diện biểu cảm và tư thế học sinh, thực hiện <b>nhận diện biểu cảm khuôn mặt</b> và <b>phân tích tư thế ngồi</b>
+      của học sinh theo thời gian thực thông qua camera.
+      Hệ thống không chỉ dừng lại ở việc nhận diện, mà còn
+      <b>đánh giá mức độ tập trung – trạng thái tâm lý – nguy cơ sai tư thế</b>
+      trong suốt quá trình học tập.
+    </p>
+  </section>
+
+  <!-- ===== LÝ DO & MỤC ĐÍCH ===== -->
+  <section class="section">
+    <h2>Lý do và mục đích xây dựng</h2>
+    <ul>
+      <li>Học sinh thường <b>cúi gù, sai tư thế</b> trong thời gian dài gây ảnh hưởng sức khỏe.</li>
+      <li>Giáo viên khó theo dõi <b>trạng thái biểu cảm khuôn mặt và mức độ tập trung</b> của từng học sinh.</li>
+      <li>Cần một hệ thống <b>tự động – khách quan – theo thời gian thực</b>.</li>
+    </ul>
+    <p>
+      Mục tiêu của module là hỗ trợ giáo viên và nhà trường
+      trong việc <b>phát hiện sớm các dấu hiệu mất tập trung, căng thẳng,
+      biểu cảm khuôn mặt tiêu cực và tư thế sai kéo dài</b>.
+    </p>
+  </section>
+
+  <!-- ===== NGUYÊN LÝ HOẠT ĐỘNG ===== -->
+  <section class="section">
+    <h2>Nguyên lý hoạt động</h2>
+    <ul>
+      <li>Thu nhận hình ảnh liên tục từ camera lớp học.</li>
+      <li>Phát hiện khuôn mặt và nhận diện biểu cảm khuôn mặt bằng mô hình AI.</li>
+      <li>Trích xuất hệ mốc xương cơ thể bằng MediaPipe Pose.</li>
+      <li>Tính toán các góc (lưng, cổ) để đánh giá tư thế.</li>
+      <li>Theo dõi trạng thái theo thời gian và ghi nhận dữ liệu.</li>
+    </ul>
+  </section>
+
+  <!-- ===== CẢNH BÁO THÔNG MINH ===== -->
+  <section class="section">
+    <h2>Cảnh báo thông minh</h2>
+    <p>
+      Hệ thống tích hợp cơ chế <b>cảnh báo thông minh</b> nhằm bảo vệ sức khỏe
+      và tâm lý học sinh:
+    </p>
+    <ul>
+      <li>Cảnh báo khi học sinh <b>cúi gù hoặc sai tư thế</b> trong thời gian dài.</li>
+      <li>Cảnh báo khi xuất hiện <b>biểu cảm tiêu cực kéo dài</b>
+          (buồn, giận dữ, sợ hãi…).</li>
+      <li>Giảm cảnh báo sai bằng cơ chế <b>ổn định biểu cảm khuôn mặt theo cửa sổ thời gian</b>.</li>
+    </ul>
+  </section>
+
+  <!-- ===== GỬI DỮ LIỆU & SERVER ===== -->
+  <section class="section">
+    <h2>Gửi dữ liệu và giám sát qua server</h2>
+    <p>
+      Dữ liệu nhận diện không chỉ hiển thị trực tiếp trên máy tính,
+      mà còn được <b>gửi lên server nội bộ</b> để:
+    </p>
+    <ul>
+      <li>Giám sát trạng thái học sinh theo thời gian thực qua trình duyệt.</li>
+      <li>Lưu trữ log biểu cảm khuôn mặt và tư thế.</li>
+      <li>Xuất báo cáo CSV, TXT, Word phục vụ phân tích và đánh giá.</li>
+    </ul>
+  </section>
+
+  <!-- ===== CÔNG NGHỆ ===== -->
+  <section class="section">
+    <h2>Tính năng nổi bật</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🎭 Nhận diện biểu cảm khuôn mặt</h3>
+        <p>Phát hiện các trạng thái như vui vẻ, buồn, giận dữ, sợ hãi, trung lập… bằng AI.</p>
+      </div>
+      <div class="card">
+        <h3>🪑 Phân tích tư thế</h3>
+        <p>Đánh giá tư thế ngồi (thẳng – hơi cúi – cúi nhiều) dựa trên MediaPipe Pose.</p>
+      </div>
+      <div class="card">
+          <h3>⚠️ Cảnh báo thông minh</h3>
+          <p>Cảnh báo khi học sinh cúi gù lâu hoặc có cảm xúc khuôn mặt tiêu cực kéo dài.</p>
+        </div>
+      <div class="card">
+        <h3>🖼️ Vẽ khung</h3>
+        <p>Tùy chọn vẽ khung để quét cá nhân có biểu hiện bất thường và xuất ra file log riêng</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Truyền dữ liệu thời gian thực</h3>
+        <p>Phát live stream nội bộ qua trình duyệt và gửi log lên server.</p>
+      </div>
+      <div class="card">
+          <h3>📄 Xuất báo cáo</h3>
+          <p>Tự động xuất báo cáo CSV, TXT và Word phục vụ phân tích – đánh giá.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+
+  <footer>
+    <p>© 2025 – Emotion & Posture Detector | THPT Nguyễn Trãi</p>
+  </footer>
+
+</body>
+</html>
+

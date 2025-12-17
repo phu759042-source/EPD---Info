@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emotion & Posture Detector v5.0</title>
+  <title>Hệ thống Tin - Sinh học nhận diện biểu cảm và tư thế học sinh</title>
   <link rel="icon" href="Emotion + Posture Detector v5.0.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -137,8 +137,7 @@
 <body>
 
   <header>
-    <h1>Emotion & Posture Detector v5.0</h1>
-    <p>Hệ thống Tin - Sinh học nhận diện cảm xúc khuôn mặt và tư thế học sinh</p>
+    <h1>Hệ thống Tin - Sinh học nhận diện biểu cảm khuôn mặt và tư thế học sinh</h1>
     <div class="meta">
       <p><strong>Tác giả:</strong> Nguyễn Tấn Phú, Nguyễn Xuân Trụ</p>
       <p><strong>Giáo viên hướng dẫn:</strong> Huỳnh Thị Khánh Nga</p>
@@ -149,69 +148,78 @@
 
   <main class="container">
 
-    <section class="section">
-      <h2>Giới thiệu sản phẩm</h2>
-      <p>
-        <strong>Emotion & Posture Detector v5.0</strong> là phần mềm ứng dụng trí tuệ nhân tạo
-        nhằm phân tích <b>cảm xúc khuôn mặt</b> và <b>tư thế ngồi</b> theo thời gian thực.
-        Hệ thống được thiết kế hướng đến môi trường học đường, hỗ trợ giáo viên và nhà trường
-        theo dõi mức độ tập trung, trạng thái tâm lý và tư thế học sinh một cách khách quan.
-      </p>
-    </section>
+  <section class="section">
+    <h2>Giới thiệu tổng quan</h2>
+    <p>
+      <strong>Hệ thống Tin - Sinh học nhận diện biểu cảm khuôn mặt và tư thế học sinh</strong>
+      là sản phẩm nghiên cứu khoa học ứng dụng trí tuệ nhân tạo (AI) và thị giác máy tính,
+      nhằm hỗ trợ nhà trường trong việc theo dõi <b>trạng thái học tập, biểu cảm khuôn mặt, tư thế
+      và mức độ tập trung của học sinh</b> trong môi trường lớp học.
+    </p>
+  </section>
 
-    <section class="section">
-      <h2>Tính năng nổi bật</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>🎭 Nhận diện cảm xúc</h3>
-          <p>Phát hiện các trạng thái như vui vẻ, buồn, giận dữ, sợ hãi, trung lập… bằng AI.</p>
-        </div>
-        <div class="card">
-          <h3>🪑 Phân tích tư thế</h3>
-          <p>Đánh giá tư thế ngồi (thẳng – hơi cúi – cúi nhiều) dựa trên MediaPipe Pose.</p>
-        </div>
-        <div class="card">
-          <h3>⚠️ Cảnh báo thông minh</h3>
-          <p>Cảnh báo khi học sinh cúi gù lâu hoặc có cảm xúc khuôn mặt tiêu cực kéo dài.</p>
-        </div>
-        <div class="card">
-          <h3>🌐 Truyền dữ liệu thời gian thực</h3>
-          <p>Phát live stream nội bộ qua trình duyệt và gửi log lên server.</p>
-        </div>
-        <div class="card">
-          <h3>📄 Xuất báo cáo</h3>
-          <p>Tự động xuất báo cáo CSV, TXT và Word phục vụ phân tích – đánh giá.</p>
-        </div>
-        <div class="card">
-          <h3>🔗 Tích hợp AISmartMonitor</h3>
-          <p>Mở chương trình <b><a href = "AISmartMonitor.html" target = "_blank">AISmartMonitor</a></b> (.exe) trực tiếp từ chương trình chính.</p>
-        </div>
+  <section class="section">
+    <h2>Lý do thực hiện đề tài</h2>
+    <p>
+      Trong thực tế học đường, giáo viên gặp nhiều khó khăn trong việc quan sát đồng thời
+      tư thế ngồi, biểu cảm khuôn mặt và mức độ tập trung của toàn bộ học sinh.
+      Việc đánh giá chủ yếu dựa vào cảm tính, thiếu tính khách quan và liên tục.
+    </p>
+    <p>
+      Từ đó, nhóm nghiên cứu đã xây dựng hệ thống này nhằm ứng dụng công nghệ Tin học
+      kết hợp kiến thức Sinh học hành vi để tự động hóa quá trình quan sát và phân tích
+      trạng thái học sinh.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Mục đích và ý nghĩa</h2>
+    <ul>
+      <li>Hỗ trợ giáo viên theo dõi lớp học một cách khách quan và liên tục</li>
+      <li>Giúp học sinh điều chỉnh tư thế ngồi, giảm nguy cơ ảnh hưởng sức khỏe</li>
+      <li>Phát hiện sớm các dấu hiệu mất tập trung, mệt mỏi, căng thẳng</li>
+      <li>Ứng dụng AI vào giáo dục theo hướng hiện đại và thực tiễn</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Cấu trúc hệ thống</h2>
+    <p>
+      Hệ thống gồm hai chương trình con hoạt động độc lập nhưng liên kết chặt chẽ,
+      tạo thành một hệ sinh thái giám sát học tập thông minh:
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🎭 Emotion & Posture Detector</h3>
+        <p>
+          Nhận diện biểu cảm khuôn mặt và phân tích tư thế ngồi học sinh theo thời gian thực.
+        </p>
+        <a href="emotion_posture_detector.html" class="download-placeholder" target = "_blank">Truy cập</a>
       </div>
-    </section>
 
-    <section class="section">
-      <h2>Kiến trúc hệ thống</h2>
-      <p>
-        Chương trình chính <b>Emotion & Posture Detector</b> đảm nhiệm việc thu thập hình ảnh,
-        xử lý AI và giao diện người dùng. Từ giao diện này, người dùng có thể mở
-        <b>AISmartMonitor</b> (đã đóng gói thành file <code>.exe</code>) để theo dõi mất tập trung
-        và các hành vi liên quan, tạo thành một hệ sinh thái giám sát học tập hoàn chỉnh.
-      </p>
-    </section>
-
-    <section class="section">
+      <div class="card">
+        <h3>🧠 AI Smart Monitor</h3>
+        <p>
+          Giám sát mất tập trung đa lớp, theo dõi hành vi học tập và tổng hợp dữ liệu phân tích.
+        </p>
+        <a href="ai_smart_monitor.html" class="download-placeholder" target = "_blank">Truy cập</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
       <h2>Tải về</h2>
       <div class="download-box">
-        <h3>📥 Tải Emotion & Posture Detector v5.0</h3>
+        <h3>📥 Tải phần mềm</h3>
         <!-- USER TỰ CHÈN LINK DOWNLOAD VÀO href -->
         <a href="https://github.com/phu759042-source/EPD---Info/releases/download/epd-v5.0/emotion_posture_detector_v5_0_installer.exe" class="download-placeholder">Download tại đây</a>
       </div>
     </section>
+</main>
 
-  </main>
 
   <footer>
-    <p>© 2025 – Emotion & Posture Detector | THPT Nguyễn Trãi</p>
+    <p>© 2025 – Hệ thống Tin - Sinh học nhận diện biểu cảm khuôn mặt và tư thế học sinh | THPT Nguyễn Trãi</p>
   </footer>
 
 </body>

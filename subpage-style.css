@@ -1,0 +1,88 @@
+/* ===== GLOBAL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== HEADER LOAD ANIMATION ===== */
+header {
+  animation: fadeSlideDown 1s ease-out;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== CARD GLOW ===== */
+.card,
+.feature {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(79,70,229,0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card:hover::before,
+.feature:hover::before {
+  opacity: 1;
+}
+
+/* ===== BUTTON SHINE (NẾU CÓ) ===== */
+a {
+  position: relative;
+  overflow: hidden;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+a:hover::after {
+  animation: shine 0.9s;
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}

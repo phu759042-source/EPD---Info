@@ -16,7 +16,8 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 18px;
   background: linear-gradient(135deg, #eef2ff, #ecfeff);
   color: var(--dark);
   line-height: 1.6;

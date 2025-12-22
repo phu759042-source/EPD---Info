@@ -1,295 +1,103 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Hệ Thống Giám Sát Đa Lớp</title>
-  <link rel="icon" type="image/x-icon" href="/static/AI_Smart_Monitor.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hệ thống Tin - Sinh học nhận diện biểu cảm và tư thế học sinh</title>
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #121212;
-      color: #ddd;
-      padding: 20px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    body.page-loaded { opacity: 1; }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #2e7d32;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: headerIn 0.7s ease forwards;
-    }
-    body.page-loaded .header { animation-delay: 0.1s; }
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-    }
-
-    .card {
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(20px) scale(0.97);
-      animation: cardIn 0.8s cubic-bezier(.25,.8,.25,1) forwards;
-    }
-    body.page-loaded .card:nth-child(1) { animation-delay: 0.25s; }
-    body.page-loaded .card:nth-child(2) { animation-delay: 0.4s; }
-
-    h2 {
-      margin-top: 0;
-      color: #4caf50;
-      font-size: 1.2rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #333;
-      text-align: left;
-      font-size: 0.95rem;
-    }
-    th { color: #888; }
-    tr:hover { background: #252525; }
-
-    select, input[type="date"] {
-      background: #333;
-      color: white;
-      padding: 10px 12px;
-      font-size: 17px;
-      border: 1px solid #4caf50;
-      border-radius: 4px;
-    }
-
-    .badge {
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: bold;
-    }
-    .bg-red { background: #c62828; }
-    .bg-orange { background: #ef6c00; }
-    .bg-blue { background: #1565c0; }
-    .bg-purple { background: #6a1b9a; }
-
-    /* ===== LOG ANIMATION ===== */
-    .log-row {
-      transition: transform 0.45s ease, opacity 0.35s ease;
-    }
-    .log-new {
-      animation: logIn 0.45s ease forwards;
-    }
-    @keyframes logIn {
-      from {
-        opacity: 0;
-        transform: scale(0.96) translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    /* ===== RANKING ===== */
-    .rank-row {
-      transition: transform 0.45s ease, background 0.3s ease;
-    }
-    .rank-up { background: rgba(76, 175, 80, 0.15); }
-    .rank-down { background: rgba(244, 67, 54, 0.12); }
-
-    .risk-bar-bg {
-      background: #333;
-      height: 6px;
-      border-radius: 3px;
-      margin-top: 5px;
-    }
-    .risk-bar-fill {
-      height: 100%;
-      border-radius: 3px;
-    }
-
-    @keyframes headerIn { to { opacity: 1; transform: translateY(0); } }
-    @keyframes cardIn { to { opacity: 1; transform: translateY(0) scale(1); } }
-  </style>
+  <link rel="icon" href="Emotion + Posture Detector v5.0.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="header">
-  <h1>🛡️ MONITOR CENTER</h1>
-  <div style="display:flex;gap:10px;align-items:center;">
-    <label>Chế độ:</label>
-    <select id="modeSelect" onchange="hardReload=true; loadData()">
-      <option value="epd_full">Quét Cảm xúc & Tư thế</option>
-      <option value="epd_distraction">Chống mất tập trung</option>
-    </select>
-
-    <label>Lớp:</label>
-    <select id="classSelect" onchange="hardReload=true; loadData()">
-      <option>Lớp 12A1</option>
-      <option>Lớp 12A2</option>
-      <option>Lớp 12A3</option>
-      <option>Lớp 12A4</option>
-      <option>Lớp 12A5</option>
-    </select>
-
-    <label>Ngày:</label>
-    <input type="date" id="dateSelect" onchange="hardReload=true; loadData()">
-
-    <a href="/logout" style="background:#c62828;color:white;padding:8px 15px;border-radius:4px;text-decoration:none;margin-left:20px;">
-      Đăng Xuất
-    </a>
+<header>
+  <h1>Hệ thống Tin - Sinh học nhận diện biểu cảm khuôn mặt và tư thế học sinh</h1>
+  <div class="meta">
+    <p><strong>Tác giả:</strong> Nguyễn Tấn Phú, Nguyễn Xuân Trụ</p>
+    <p><strong>Giáo viên hướng dẫn:</strong> Huỳnh Thị Khánh Nga</p>
+    <p><strong>Trường:</strong> THPT Nguyễn Trãi</p>
+    <p><strong>Lớp:</strong> 12/5 | <strong>Năm học:</strong> 2025–2026</p>
   </div>
-</div>
+</header>
 
-<div class="dashboard-grid">
-  <div class="card">
-    <h2>📜 Nhật Ký Vi Phạm</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Học Sinh</th><th>Vấn đề</th><th>Ngày</th><th>Thời gian</th><th>Thời lượng</th>
-        </tr>
-      </thead>
-      <tbody id="log-table"></tbody>
-    </table>
-  </div>
+<main class="container">
 
-  <div class="card">
-    <h2>⚠️ Bảng Xếp Hạng Nguy Cơ</h2>
-    <table>
-      <thead>
-        <tr><th>Hạng</th><th>Học Sinh</th><th>Điểm</th></tr>
-      </thead>
-      <tbody id="risk-table"></tbody>
-    </table>
-  </div>
-</div>
+  <section class="section reveal">
+    <h2>Giới thiệu tổng quan</h2>
+    <p>
+      <strong>Hệ thống Tin - Sinh học nhận diện biểu cảm khuôn mặt và tư thế học sinh</strong>
+      là sản phẩm nghiên cứu khoa học ứng dụng trí tuệ nhân tạo (AI) và thị giác máy tính,
+      nhằm hỗ trợ nhà trường theo dõi trạng thái học tập và sức khỏe học sinh.
+    </p>
+  </section>
 
-<script>
-let lastLogKeys = [];
-let previousRanking = {};
-let hardReload = false;
+  <section class="section reveal">
+    <h2>Lý do thực hiện đề tài</h2>
+    <p>
+      Giáo viên khó có thể quan sát đồng thời toàn bộ học sinh trong lớp.
+      Việc đánh giá tư thế và mức độ tập trung hiện nay còn mang tính chủ quan.
+    </p>
+    <p>
+      Hệ thống được xây dựng nhằm tự động hóa việc quan sát bằng AI,
+      kết hợp kiến thức Tin học và Sinh học hành vi.
+    </p>
+  </section>
 
-document.getElementById("dateSelect").value =
-  new Date().toISOString().split("T")[0];
+  <section class="section reveal">
+    <h2>Mục đích và ý nghĩa</h2>
+    <ul>
+      <li>Giám sát học tập khách quan, liên tục</li>
+      <li>Hỗ trợ cải thiện tư thế ngồi học</li>
+      <li>Phát hiện sớm trạng thái mệt mỏi, mất tập trung</li>
+      <li>Ứng dụng AI vào giáo dục thực tiễn</li>
+    </ul>
+  </section>
 
-window.onload = () => document.body.classList.add("page-loaded");
+  <section class="section reveal">
+    <h2>Cấu trúc hệ thống</h2>
 
-function getBadge(issue) {
-  if(issue.includes("Cúi nhiều") || issue.includes("Giận dữ") || issue.includes("Sợ hãi"))
-    return `<span class="badge bg-red">${issue}</span>`;
-  if(issue.includes("Hơi cúi"))
-    return `<span class="badge bg-orange">${issue}</span>`;
-  if(issue.includes("Buồn"))
-    return `<span class="badge bg-blue">${issue}</span>`;
-  return `<span class="badge bg-purple">${issue}</span>`;
-}
+    <div class="cards">
+      <div class="card">
+        <h3>🎭 Emotion & Posture Detector</h3>
+        <p>Nhận diện biểu cảm khuôn mặt và phân tích tư thế theo thời gian thực.</p>
+        <a href="emotion_posture_detector.html" class="download-btn" target="_blank">Truy cập</a>
+      </div>
 
-async function loadData() {
-  const mode = modeSelect.value;
-  const cls = classSelect.value;
-  const date = dateSelect.value;
-  const logTable = document.getElementById("log-table");
+      <div class="card">
+        <h3>🧠 AI Smart Monitor</h3>
+        <p>Giám sát mức độ tập trung, phân tích hành vi học tập.</p>
+        <a href="ai_smart_monitor.html" class="download-btn" target="_blank">Truy cập</a>
+      </div>
+    </div>
+  </section>
 
-  /* ===== SAVE OLD POSITIONS ===== */
-  const oldPos = {};
-  document.querySelectorAll("#log-table tr").forEach(r => {
-    oldPos[r.dataset.key] = r.getBoundingClientRect().top;
-  });
+  <section class="section reveal">
+    <h2>Tải về</h2>
+    <div class="download-box">
+      <h3>📥 Tải phần mềm</h3>
+      <a href="https://github.com/phu759042-source/EPD---Info/releases/download/he-thong-tin-sinh-hoc/he_thong_tin_sinh_hoc_installer.exe"
+         class="download-btn">
+        Download tại đây
+      </a>
+    </div>
+  </section>
 
-  const logs = await (await fetch(`/api/get_logs/${mode}/${cls}/${date}`)).json();
-  const keys = logs.map(l => `${l.zone_id}-${l.start_time}-${l.issue_type}`);
+  <section class="section reveal">
+    <h2>Đánh giá</h2>
+    <div class="cards">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1OWwu0l-gLqpNhqNGlU_1BWKr1hGMMG3XPH7JzMB38oBeWg/viewform?usp=dialog" target = "_blank" class="download-btn">
+        <p style = "text-align: center;">Bấm vào đây</p>
+      </a>
+    </div>
+  </section>
+</main>
 
-  logTable.innerHTML = logs.map(l => {
-    const key = `${l.zone_id}-${l.start_time}-${l.issue_type}`;
-    const isNew = !lastLogKeys.includes(key);
-    return `
-      <tr class="log-row ${isNew ? 'log-new' : ''}" data-key="${key}">
-        <td style="color:#4caf50;font-weight:bold">HS-${l.zone_id}</td>
-        <td>${getBadge(l.issue_type)}</td>
-        <td>${date}</td>
-        <td>${l.start_time} - ${l.end_time}</td>
-        <td>${l.duration_seconds}s</td>
-      </tr>
-    `;
-  }).join("");
+<footer>
+  <p>© 2025 – Hệ thống Tin - Sinh học nhận diện biểu cảm khuôn mặt và tư thế học sinh | THPT Nguyễn Trãi</p>
+</footer>
 
-  /* ===== FLIP ANIMATION ===== */
-  requestAnimationFrame(() => {
-    document.querySelectorAll("#log-table tr").forEach(row => {
-      const key = row.dataset.key;
-      if(oldPos[key] !== undefined) {
-        const newTop = row.getBoundingClientRect().top;
-        const delta = oldPos[key] - newTop;
-        if(delta !== 0) {
-          row.style.transform = `translateY(${delta}px)`;
-          requestAnimationFrame(() => {
-            row.style.transform = "translateY(0)";
-          });
-        }
-      }
-    });
-  });
-
-  lastLogKeys = keys;
-
-  /* ===== RANKING (GIỮ NGUYÊN) ===== */
-  const ranking = await (await fetch(`/api/get_risk_ranking/${mode}/${cls}/${date}`)).json();
-  const max = ranking[0]?.score || 1;
-  const riskTable = document.getElementById("risk-table");
-  const oldRank = {...previousRanking};
-
-  riskTable.innerHTML = ranking.map((r,i)=>{
-    previousRanking[r.id] = i;
-    const pct = r.score / max * 100;
-    const color = i===0 ? "#d32f2f" : i<3 ? "#f57c00" : "#4caf50";
-    return `
-      <tr class="rank-row" data-id="${r.id}">
-        <td>#${i+1}</td>
-        <td style="color:${color};font-weight:bold">HS-${r.id}</td>
-        <td>${r.score}
-          <div class="risk-bar-bg">
-            <div class="risk-bar-fill" style="width:${pct}%;background:${color}"></div>
-          </div>
-        </td>
-      </tr>`;
-  }).join("");
-
-  requestAnimationFrame(()=>{
-    document.querySelectorAll(".rank-row").forEach(row=>{
-      const id = row.dataset.id;
-      if(oldRank[id] !== undefined && oldRank[id] !== previousRanking[id]) {
-        const delta = (oldRank[id]-previousRanking[id])*row.offsetHeight;
-        row.style.transform = `translateY(${delta}px)`;
-        row.classList.add(oldRank[id]>previousRanking[id]?"rank-up":"rank-down");
-        requestAnimationFrame(()=>row.style.transform="translateY(0)");
-        setTimeout(()=>row.classList.remove("rank-up","rank-down"),600);
-      }
-    });
-  });
-}
-
-setInterval(loadData, 2000);
-loadData();
-</script>
-
+<script src="animation.js"></script>
 </body>
 </html>
